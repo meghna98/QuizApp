@@ -1,0 +1,30 @@
+<div class="d-flex flex-column justify-content-center align-items-center">
+    <div *ngFor="let result of results" class="w-100 m-2">
+        <div  *ngIf="result.correctAnswer==result.answerSubmitted" class="mx-auto correct-answer d-flex justify-content-center align-items-center bg-success">
+                <div class = "question p-2"> 
+                    {{result.num1}} 
+                 </div>
+                 <div class = "question p-2">{{result.operator}}</div>
+             <div class = "question p-2">{{result.num2}}</div>
+             <div class = "question p-2">=</div>
+             <div class = "question p-2">
+                {{result.answerSubmitted}}
+               </div>
+        </div>
+
+        <div  *ngIf="result.correctAnswer!=result.answerSubmitted" class = "mx-auto wrong-answer bg-danger">
+            <div class="d-flex justify-content-center align-items-center">
+            <div class = "question p-2"> 
+                {{result.num1}} 
+             </div>
+             <div class = "question p-2">{{result.operator}}</div>
+            <div class = "question p-2">{{result.num2}}</div>
+            <div class = "question p-2">=</div>
+            <div class = "question p-2">
+                {{result.answerSubmitted!=null?result.answerSubmitted:'?'}}
+            </div></div>
+            <div class="display-solution">Correct answer = {{result.correctAnswer}}</div>
+    </div>
+        
+    </div>
+</div>

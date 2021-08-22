@@ -1,0 +1,43 @@
+<div class="px-3">
+<h1 mat-dialog-title>Settings</h1><hr/>
+<div mat-dialog-content style="height:100%;overflow-y: hidden;">
+  <div class="row text-center">
+    <div class="col-4">Maximum operand value ? </div>
+    <div class="col"><mat-form-field appearance="outline">
+        <mat-label>Max Value</mat-label>
+        <input required matInput [(ngModel)]="data.max">
+    </mat-form-field></div>
+  </div>
+  <div class="row text-center">
+    <div class="col-4">Minimum operand value ?  </div>
+    <div class="col"><mat-form-field appearance="outline">
+        <mat-label>Min Value</mat-label>
+        <input required matInput [(ngModel)]="data.min">
+    </mat-form-field></div>
+  </div>
+  <div class="row text-center">
+    <div class="col-4">No. of questions ? </div>
+    <div class="col"><mat-form-field appearance="outline">
+        <mat-label>Max Questions</mat-label>
+        <input required matInput [(ngModel)]="data.maxQuestions">
+    </mat-form-field></div>
+  </div>
+  <div class="row text-center">
+    <div class="col-4">Choose operators  </div>
+  <div class="col d-flex justify-content-center">
+  <!-- <section > -->
+    <mat-checkbox class="mx-4" [(ngModel)]="plus">+</mat-checkbox>
+    <mat-checkbox class="mx-4" [(ngModel)]="sub">-</mat-checkbox>
+    <mat-checkbox class="mx-4" [(ngModel)]="mult">*</mat-checkbox>
+    <mat-checkbox class="mx-4" [(ngModel)]="div">/</mat-checkbox>
+  <!-- </section> -->
+</div>
+</div>
+</div><hr/>
+<div mat-dialog-actions class="mt-3">
+  <button mat-button (click)="onNoClick()" color="primary">Cancel</button>
+  <button mat-raised-button (click)="onOkClick()" color="primary" cdkFocusInitial>Ok</button>
+</div>
+
+</div>
+<!-- {{data | json}} -->

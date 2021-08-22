@@ -1,0 +1,18 @@
+<mat-toolbar color="primary" style="position: sticky; top:0;min-height: 8%;">
+  <div class="mx-5 d-flex bd-highlight" style="width:100%">
+    <div class="mx-2 flex-grow-1 bd-highlight">
+      <button mat-icon-button>
+      <mat-icon class="mb-2">calculate</mat-icon>
+    </button>
+      <span>Maths Quiz</span>
+    </div>
+    <div class="menu-bar d-flex justify-content-end align-item-center">
+        <div><button mat-button class="text-right ml-auto">
+            <mat-icon class="matSettings" (click)="openHelp()">helpcenter</mat-icon>
+        </button></div>
+        <div><button mat-button class="text-right ml-auto">
+          <mat-icon class="matSettings" (click)="openSettings()">settings</mat-icon>
+      </button></div>
+    </div>
+  </div>
+  </mat-toolbar>

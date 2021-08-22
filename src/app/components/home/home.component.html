@@ -1,0 +1,5 @@
+<div class="home">
+    <app-navbar [settings] = "settings" (settingsEvent) = "updateSettings($event)"></app-navbar>
+    <app-quiz [sectionCount] = 2 [max] = "settings.max" [min] = "settings.min" [operators] = "settings.operators" [maxQuestions] = "settings.maxQuestions"></app-quiz>
+    <app-footer></app-footer>
+</div>

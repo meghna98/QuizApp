@@ -1,0 +1,18 @@
+.correct-answer, .wrong-answer{
+    border : 0.5px solid #eee;
+    border-radius: 30px 30px 30px 30px;
+    padding: 10px 50px;
+    width: 90%;
+    // background-color: rgb(63,81,181);
+}
+.question{
+    color: #eee;
+    font-weight: 900;
+    font-size: 20px;
+}
+.wrong-answer{
+    padding: 5px 50px;
+}
+.display-solution{
+    color: #eee;
+}

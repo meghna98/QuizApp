@@ -1,0 +1,53 @@
+<div class="container py-2 my-5 quiz">
+    <div class="row" style="height:100%"> 
+        <div class="col-md  border border-secondary rounded text-center mx-2" *ngFor="let section of sectionArray; let i = index">
+            <section *ngIf="section==-1" color="primary" class="mt-5 my-5 py-5 section bg-muted text-center rounded">
+                <div><h1 style="font-size: 1.5rem;"><b>Let's Play</b></h1>
+                <h2>Quiz - {{i + 1}}</h2><br/>
+                <button mat-raised-button color="primary" class="px-5" (click) = "startQuiz(i)">Start</button>
+                </div>
+            </section>
+            <section *ngIf="section>-1" color="primary" [ngClass]="section == maxQuestions ? 'mt-1' : 'mt-5'" class="bg-muted text-center rounded">
+                <div *ngIf="section!=maxQuestions">
+                    <div class="questionNo p-2 mx-auto"><strong>Question: {{section+1}}</strong></div>
+            
+                    <div class="p-5">
+                        <mat-progress-bar mode="determinate" value="{{section/maxQuestions*100}}"></mat-progress-bar>
+                    </div>
+                    <div class="d-flex justify-content-center align-items-center question-container">
+                       <div class = "question p-3"> 
+                           {{quizMap.get(i)[section].num1}}    
+                        </div>
+                        <div class = "question p-3">{{quizMap.get(i)[section].operator}}</div>
+                    <div class = "question p-3">{{quizMap.get(i)[section].num2}}</div>
+                    <div class = "question p-3" style="border: none;">=</div>
+                    <div class = "question pt-3 px-3" style="font-size: 18px;border: none;">
+                        <mat-form-field color="primary"  [style.width.px]=100>
+                            <mat-label>Answer</mat-label>
+                        <input type="number" [(ngModel)]="answer" matInput placeholder="Ex. 4">
+                        </mat-form-field>
+                      </div>
+                    </div>
+                    <button mat-raised-button color="primary" class="px-5 m-4" (click) = "nextQuestion(i,answer)">Next</button>
+                    <mat-card>
+                        <div class="border border-muted text-secondary d-flex justify-content-around">
+                            <h2>Correct: {{quizMap.get(i)[section].currentScore}}</h2>
+                            <h2>Wrong: {{section - quizMap.get(i)[section].currentScore}}</h2>
+                            <h2>Score: {{quizMap.get(i)[section].currentScore}}</h2>
+                        </div>
+                    </mat-card>
+                </div>
+                <div *ngIf="section==maxQuestions">
+                    <h1><b>GAME OVER</b></h1>
+                    <div class="d-flex flex-column justify-content-center">
+                        <app-results [results] = "quizMap.get(i)"></app-results>
+                    </div>
+                    <div><h1><b>Total Score : {{quizMap.get(i)[section-1].currentScore}}</b></h1></div>
+                    <div>
+                    <button mat-raised-button color="primary" class="px-5 m-2" (click) = "reset(i)">Play Again</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
