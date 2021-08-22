@@ -21,9 +21,9 @@ export class SettingsComponent implements OnInit {
     this.dialogRef.close();
   }
   onOkClick(): void {
-    if(this.data.max<this.data.min)
+    if(parseInt(this.data.max)<parseInt(this.data.min))
       this._snackbar.open("Max value should be greater than min value","" , {"duration": 2000});
-      else{
+    else{
     let selectedOperators = []
     if(this.plus==true)
       selectedOperators.push("+")
